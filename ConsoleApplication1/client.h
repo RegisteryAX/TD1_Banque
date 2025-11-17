@@ -13,13 +13,13 @@ private:
     string email;
 
 public:
-    // Constructeur
+    
     Client(string n, string p, string a, string e);
 
-    // Méthode pour afficher les infos du client
+    
     void afficherInfos() const;
 
-    // Getter pour le nom complet
+    
     string getNomComplet() const;
 };
 
