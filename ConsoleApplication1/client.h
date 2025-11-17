@@ -2,25 +2,23 @@
 #define CLIENT_H
 
 #include <string>
-#include <iostream>
-using namespace std;
+#include "CompteBancaire.h"
 
 class Client {
 private:
-    string nom;
-    string prenom;
-    string adresse;
-    string email;
+    std::string username;
+    std::string password;
+    bool agent;
+    CompteBancaire compte;
 
 public:
-    
-    Client(string n, string p, string a, string e);
+    Client(std::string u, std::string p, bool isAgent = false);
 
-    
-    void afficherInfos() const;
+    std::string getUsername() const;
+    bool checkPassword(std::string p) const;
 
-    
-    string getNomComplet() const;
+    bool isAgent() const;
+    CompteBancaire& getAccount();
 };
 
 #endif

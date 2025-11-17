@@ -1,30 +1,25 @@
 #ifndef BANK_H
 #define BANK_H
 
-#include <iostream>
 #include <vector>
-#include "CompteBancaire.h"
-using namespace std;
+#include <string>
+#include "Client.h"
 
 class Bank {
 private:
-    string nom;
-    vector<CompteBancaire> comptes;
+    std::vector<Client> clients;
 
 public:
-    // Constructeur
-    Bank(string n);
+    Client* login(std::string u, std::string p);
 
-    // Gestion des comptes
-    void ajouterCompte(const CompteBancaire& compte);
-    void supprimerCompte(string numero);
-    CompteBancaire* chercherCompte(string numero);
+    void addClient(std::string u, std::string p, bool agent = false);
+    void removeClient(std::string username);
 
-    // Affichage
-    void afficherTousComptes() const;
+    void showAllAccounts() const;
 
-    // Transfert
-    void transferer(string numSource, string numDest, double montant);
+    bool transfer(std::string from, std::string to, double amount);
+
+    Client* findClient(std::string username);
 };
 
 #endif

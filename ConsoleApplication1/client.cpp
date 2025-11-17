@@ -1,17 +1,20 @@
 #include "Client.h"
 
+Client::Client(std::string u, std::string p, bool isAgent)
+    : username(u), password(p), agent(isAgent), compte(CompteBancaire(u)) {}
 
-Client::Client(string n, string p, string a, string e)
-    : nom(n), prenom(p), adresse(a), email(e) {}
-
-
-void Client::afficherInfos() const {
-    cout << "Client : " << prenom << " " << nom << endl;
-    cout << "Adresse : " << adresse << endl;
-    cout << "Email : " << email << endl;
+std::string Client::getUsername() const {
+    return username;
 }
 
+bool Client::checkPassword(std::string p) const {
+    return p == password;
+}
 
-string Client::getNomComplet() const {
-    return prenom + " " + nom;
+bool Client::isAgent() const {
+    return agent;
+}
+
+CompteBancaire& Client::getAccount() {
+    return compte;
 }
